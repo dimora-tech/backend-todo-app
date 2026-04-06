@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 try:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.backend.settings')
 except:
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.backend.settings')
 application = get_wsgi_application()
