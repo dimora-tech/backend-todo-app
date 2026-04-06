@@ -57,7 +57,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 CORS_ALLOWED_ORIGINS = [
-    "https://your-frontend.vercel.app"
+    "https://backend-todo-app-ten.vercel.app"
 ]
 
 TEMPLATES = [
