@@ -41,7 +41,8 @@ function App() {
     setTask("");
   };*/
 
-  const handleAddTask = async () => {
+  const handleAddTask = async (event) => {
+    if (event.key && event.key !== "Enter") return;
     if (!task.trim()) return;
     const res = await fetch("https://backend-todo-app-srgu.onrender.com/api/todos/", {
       method: "POST",
@@ -53,6 +54,8 @@ function App() {
     setTasks([...tasks, newTask]);
     setTask("");
   };
+
+  
 
   /*  const handleDeleteTask = (id) => {
     setTasks(tasks.filter((t) => t.id !== id));
@@ -87,7 +90,8 @@ function App() {
   useEffect(() => {
     fetch("https://backend-todo-app-srgu.onrender.com/api/todos/")
       .then((res) => res.json())
-      .then((data) => setTasks(data));
+      .then((data) => setTasks(data))
+    .catch((err) => console.error("Error loading todos:", err));
   }, []);
 
   /* useEffect(() => {
