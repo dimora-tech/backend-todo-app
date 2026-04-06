@@ -43,7 +43,7 @@ function App() {
 
   const handleAddTask = async () => {
     if (!task.trim()) return;
-    const res = await fetch("http://127.0.0.1:8000/api/todos/", {
+    const res = await fetch("https://backend-todo-app-srgu.onrender.com/api/todos/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ task: task, completed: false }),
@@ -58,7 +58,7 @@ function App() {
     setTasks(tasks.filter((t) => t.id !== id));
   };*/
   const handleDeleteTask = async (id) => {
-    await fetch(`http://127.0.0.1:8000/api/todos/${id}/`, { method: "DELETE" });
+    await fetch(`https://backend-todo-app-srgu.onrender.com/api/todos/${id}/`, { method: "DELETE" });
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
@@ -68,7 +68,7 @@ function App() {
     );
   };*/
   const handleToggleTask = async (t) => {
-    const res = await fetch(`http://127.0.0.1:8000/api/todos/${t.id}/`, {
+    const res = await fetch(`https://backend-todo-app-srgu.onrender.com/api/todos/${t.id}/`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ completed: !t.completed }),
@@ -85,7 +85,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/todos/")
+    fetch("https://backend-todo-app-srgu.onrender.com/api/todos/")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
